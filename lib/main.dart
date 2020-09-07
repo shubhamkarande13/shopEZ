@@ -3,6 +3,7 @@ import './screens/products_overview_screen.dart';
 import './screens/product_detail_screen.dart';
 import 'package:provider/provider.dart';
 import 'providers/products.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         ),
         home: ProductsOverviewScreen(),
         routes: {
-          ProductDetailScreen.routeName:(ctx) => ProductDetailScreen(),
+          ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
         },
       ),
     );
