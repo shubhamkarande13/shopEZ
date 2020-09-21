@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import '../providers/products.dart';
 import '../widgets/user_product_item.dart';
 import 'package:shopez/widgets/app_drawer.dart';
-import 'edit_screen_product.dart';
+import 'edit_product_screen.dart';
 
 class UserProductsScreen extends StatelessWidget {
   static const routeName = '/user-products';
