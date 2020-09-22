@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopez/widgets/app_drawer.dart';
+
 import '../providers/orders.dart' show Orders;
 import '../widgets/order_item.dart';
+import '../widgets/app_drawer.dart';
 
 class OrdersScreen extends StatelessWidget {
-
   static const routeName = '/orders';
 
   @override
