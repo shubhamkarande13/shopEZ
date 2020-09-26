@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import './product.dart';
 import 'dart:convert';
+
 class Products with ChangeNotifier {
   List<Product> _items = [
     Product(
@@ -37,6 +38,7 @@ class Products with ChangeNotifier {
           'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
     ),
   ];
+
   // var _showFavoritesOnly = false;
 
   List<Product> get items {
@@ -64,15 +66,20 @@ class Products with ChangeNotifier {
   //   notifyListeners();
   // }
 
-  void addProduct(Product product) {
+  Future<void> addProduct(Product product) {
     const url = 'https://shopez-d6b82.firebaseio.com/products.json';
-    http.post(url,body: json.encode({
-      'title':product.title,
-      'description':product.description,
-      'imageUrl' : product.imageUrl,
-      'price': product.price,
-      'isFavourite': product.isFavorite,
-    }),).then((response) {
+    http
+        .post(
+      url,
+      body: json.encode({
+        'title': product.title,
+        'description': product.description,
+        'imageUrl': product.imageUrl,
+        'price': product.price,
+        'isFavourite': product.isFavorite,
+      }),
+    )
+        .then((response) {
       final newProduct = Product(
         title: product.title,
         description: product.description,
@@ -84,7 +91,6 @@ class Products with ChangeNotifier {
       // _items.insert(0, newProduct); // at the start of the list
       notifyListeners();
     });
-
   }
 
   void updateProduct(String id, Product newProduct) {
